@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://bc08tot64pdll"]
+
+[ext_resource type="Texture2D" uid="uid://djxbg7w7lnsqx" path="res://Assets/env/elementWood015.png" id="1_u7dqu"]
+[ext_resource type="Texture2D" uid="uid://b7fprk6oq5a67" path="res://Assets/player/parrot.png" id="2_dwiup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwiup"]
+size = Vector2(1083, 21)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dwiup"]
+bounce = 0.4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vg34w"]
+radius = 38.832977
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwiup"]
+radius = 25.495098
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg34w"]
+size = Vector2(590, 20)
+
+[node name="TestRb" type="Node"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2, 645)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(566.5, 0.5)
+shape = SubResource("RectangleShape2D_dwiup")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(14.5, -0.5)
+scale = Vector2(5.6045456, 0.2857143)
+texture = ExtResource("1_u7dqu")
+
+[node name="Bird5" type="RigidBody2D" parent="."]
+top_level = true
+position = Vector2(390, 198)
+mass = 10000.0
+physics_material_override = SubResource("PhysicsMaterial_dwiup")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bird5"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dwiup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird5"]
+shape = SubResource("CircleShape2D_vg34w")
+
+[node name="Label" type="Label" parent="Bird5"]
+top_level = true
+offset_right = 493.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 48
+text = "blblbblbblblbllblblblb"
+
+[node name="Bird6" type="RigidBody2D" parent="."]
+top_level = true
+position = Vector2(788, 506)
+physics_material_override = SubResource("PhysicsMaterial_dwiup")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bird6"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dwiup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird6"]
+shape = SubResource("CircleShape2D_vg34w")
+
+[node name="Label" type="Label" parent="Bird6"]
+top_level = true
+offset_right = 493.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 48
+text = "blblbblbblblbllblblblb"
+
+[node name="Pivot" type="StaticBody2D" parent="."]
+position = Vector2(648, 608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot"]
+shape = SubResource("CircleShape2D_dwiup")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+modulate = Color(0.008202022, 0.008202025, 0.008202025, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_dwiup")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(647, 563)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(-1, 1)
+scale = Vector2(2.7045453, 0.35714287)
+texture = ExtResource("1_u7dqu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_vg34w")
