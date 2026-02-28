@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8p8162me3sbv"]
+[gd_scene load_steps=8 format=3 uid="uid://c8p8162me3sbv"]
 
 [ext_resource type="Texture2D" uid="uid://b7fprk6oq5a67" path="res://Assets/player/parrot.png" id="1_1vq0b"]
+[ext_resource type="Script" uid="uid://dpfq7dq5x181u" path="res://Animal/animal.gd" id="1_p1kwv"]
 [ext_resource type="AudioStream" uid="uid://dl4nnabamxu34" path="res://Assets/audio/kick_wood.ogg" id="2_uhgl0"]
 [ext_resource type="AudioStream" uid="uid://yukermxm6pp0" path="res://Assets/audio/catapult.ogg" id="3_p1kwv"]
 [ext_resource type="AudioStream" uid="uid://bco6cvqghpq1t" path="res://Assets/audio/stretch2.ogg" id="4_pai5w"]
+[ext_resource type="Texture2D" uid="uid://bipnl2lxk2yx1" path="res://Assets/items/arrow.png" id="6_pai5w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxl74"]
 radius = 19.235384
@@ -12,6 +14,7 @@ radius = 19.235384
 input_pickable = true
 contact_monitor = true
 max_contacts_reported = 1
+script = ExtResource("1_p1kwv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
@@ -40,3 +43,12 @@ stream = ExtResource("3_p1kwv")
 
 [node name="StretchSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_pai5w")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_pai5w")
+offset = Vector2(150, 0)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
