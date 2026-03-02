@@ -95,6 +95,11 @@ func scale_arrow() -> void:
 	arrow.rotation = (_start - position).angle()
 
 
+func die() -> void:
+	queue_free()
+
+
+
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("drag"):
 		input_event.disconnect(_on_input_event)
