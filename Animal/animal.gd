@@ -9,6 +9,8 @@ extends RigidBody2D
 @onready var arrow : Sprite2D = $Arrow
 var _start: Vector2 = Vector2.ZERO
 var _drag_start: Vector2 = Vector2.ZERO
+var _dragged_vector: Vector2 = Vector2.ZERO
+
 var _is_dragging: bool = false
 
 
@@ -28,6 +30,15 @@ func _processed( _delta: float) -> void:
 		_is_dragging, _drag_start.x, _drag_start.y
 ]
 	label.text = debug_str
+
+
+func _physics_process(_delta: float) -> void:
+	if _is_dragging: handle_dragging()
+
+
+func handle_dragging() -> void:
+	_dragged_vector = get_global_mouse_position() - _drag_start
+	position = _start + _dragged_vector
 
 
 
