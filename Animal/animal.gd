@@ -43,8 +43,8 @@ func _processed( _delta: float) -> void:
 	debug_str += "is_dragging:%s drag_start:%.0f, %.0f" % [
 		_is_dragging, _drag_start.x, _drag_start.y
 	]
-	debug_str += "dragged_vector:%,0f, %.0f\n" % [
-		
+	debug_str += "dragged_vector:%.0f, %.0f\n" % [
+		_dragged_vector.x, _dragged_vector.y
 	]
 	debug_str += "impulse:%.0f" % [
 		calculate_impulse().length()
@@ -69,8 +69,8 @@ func handle_dragging() -> void:
 	if diff.length() > 0 and !stretch_sound.playing:
 		stretch_sound.play()
 		
-		scale_arrow()
-		_dragged_vector = new_dragged_vector
+	scale_arrow()
+	_dragged_vector = new_dragged_vector
 	position = _start + _dragged_vector
 
 
