@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bava67rhbrbkg"]
+
+[ext_resource type="LabelSettings" uid="uid://b6rsv6qmxkgej" path="res://Scenes/Resources/LightLabel32.tres" id="1_e7x7x"]
+
+[node name="GameUi" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="MC"]
+layout_mode = 2
+text = "Level 99"
+label_settings = ExtResource("1_e7x7x")
+
+[node name="AttemptsLabel" type="Label" parent="MC"]
+layout_mode = 2
+text = "Attemps 000"
+label_settings = ExtResource("1_e7x7x")

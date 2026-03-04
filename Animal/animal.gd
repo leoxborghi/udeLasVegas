@@ -14,7 +14,7 @@ const IMPULSE_MAX: float = 2000.0
 @onready var arrow : Sprite2D = $Arrow
 @onready var stretch_sound: AudioStreamPlayer2D = $StretchSound
 @onready var launch_sound: AudioStreamPlayer2D = $LaunchSound
-
+@onready var kick_sound: AudioStreamPlayer2D = $KickSound
 
 var _start: Vector2 = Vector2.ZERO
 var _drag_start: Vector2 = Vector2.ZERO
@@ -23,7 +23,7 @@ var _is_dragging: bool = false
 var _arrow_scale_x: float = 0.0
 
 
-func _unhandeld_input(event: InputEvent) -> void:
+func _unhandeld_(event: InputEvent) -> void:
 	if event.is_action_released("drag")and _is_dragging:
 		call_deferred("start_release")
 
@@ -96,6 +96,8 @@ func scale_arrow() -> void:
 
 
 func die() -> void:
+
+	SignalHub.emit_on_animal_died()
 	queue_free()
 
 
@@ -104,3 +106,15 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if event.is_action_pressed("drag"):
 		input_event.disconnect(_on_input_event)
 		start_dragging()
+
+
+func _on_body_entered(_body: Node) -> void:
+	if !kick_sound.playing:
+		kick_sound.play()
+
+
+func _on_sleeping_state_changed() -> void:
+	if sleeping:
+		for body in get_colliding_bodies():
+			if body is Cup: body.die()
+		die()

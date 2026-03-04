@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8p8162me3sbv"]
+[gd_scene load_steps=9 format=3 uid="uid://c8p8162me3sbv"]
 
 [ext_resource type="Texture2D" uid="uid://b7fprk6oq5a67" path="res://Assets/player/parrot.png" id="1_1vq0b"]
 [ext_resource type="Script" uid="uid://dpfq7dq5x181u" path="res://Animal/animal.gd" id="1_p1kwv"]
@@ -7,11 +7,15 @@
 [ext_resource type="AudioStream" uid="uid://bco6cvqghpq1t" path="res://Assets/audio/stretch2.ogg" id="4_pai5w"]
 [ext_resource type="Texture2D" uid="uid://bipnl2lxk2yx1" path="res://Assets/items/arrow.png" id="6_pai5w"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pai5w"]
+bounce = 0.25
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxl74"]
 radius = 19.235384
 
 [node name="Animal" type="RigidBody2D"]
 input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_pai5w")
 freeze = true
 contact_monitor = true
 max_contacts_reported = 1
@@ -50,5 +54,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_pai5w")
 offset = Vector2(150, 0)
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]
