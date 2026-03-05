@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bava67rhbrbkg"]
+[gd_scene load_steps=7 format=3 uid="uid://bava67rhbrbkg"]
 
 [ext_resource type="LabelSettings" uid="uid://b6rsv6qmxkgej" path="res://Scenes/Resources/LightLabel32.tres" id="1_e7x7x"]
+[ext_resource type="Script" uid="uid://cf072tewvx2k3" path="res://Scenes/GameUi/game_ui.gd" id="1_vneep"]
 [ext_resource type="LabelSettings" uid="uid://cpbr4kaitqowb" path="res://Scenes/Resources/LightBlueLabel96.tres" id="2_727vw"]
 [ext_resource type="FontFile" uid="uid://cammsndjd20co" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="3_vneep"]
+[ext_resource type="AudioStream" uid="uid://cu570ublage78" path="res://Assets/audio/jazzyfrenchy.mp3" id="5_xa7bn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xa7bn"]
 font = ExtResource("3_vneep")
@@ -16,6 +18,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_vneep")
 
 [node name="MC" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -66,3 +70,7 @@ text = "Press ESCAPE
 label_settings = SubResource("LabelSettings_xa7bn")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xa7bn")
+parameters/looping = true
