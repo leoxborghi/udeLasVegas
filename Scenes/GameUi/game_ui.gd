@@ -38,4 +38,5 @@ func on_cup_destroyed() -> void:
 	if _current_cups == _total_cups:
 		vb_complete.show()
 		music.play()
+		ScoreManager.set_score_for_current_level(_attempts)
 		get_tree().paused = true

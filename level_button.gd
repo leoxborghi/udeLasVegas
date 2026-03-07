@@ -5,11 +5,13 @@ extends TextureButton
 
 
 @onready var level_label: Label = $MarginContainer/VB/LevelLabel
+@onready var score_label: Label = $MarginContainer/VB/ScoreLabel
 
 
 
 func _ready() -> void:
 	level_label.text = str(level_number)
+	score_label.text = "%04d" % ScoreManager.get_level_best(level_number)
 
 
 func _on_mouse_entered() -> void:
@@ -21,6 +23,7 @@ func _on_mouse_exited() -> void:
 
 
 func _on_pressed() -> void:
+	ScoreManager.level_selected = level_number
 	get_tree().change_scene_to_file(
 		"res://Scenes/LevelBase/level_%d.tscn" % level_number
 		)
