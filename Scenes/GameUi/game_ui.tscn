@@ -14,6 +14,7 @@ outline_size = 6
 outline_color = Color(0, 0.15686275, 0.15686275, 1)
 
 [node name="GameUi" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -29,16 +30,35 @@ theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 
 [node name="VB" type="VBoxContainer" parent="MC"]
+custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MC/VB"]
+[node name="HBLevel" type="HBoxContainer" parent="MC/VB"]
 layout_mode = 2
-text = "Level 99"
+
+[node name="LevelLabel" type="Label" parent="MC/VB/HBLevel"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "level"
 label_settings = ExtResource("1_e7x7x")
 
-[node name="AttemptsLabel" type="Label" parent="MC/VB"]
+[node name="AttemptsLabel2" type="Label" parent="MC/VB/HBLevel"]
 layout_mode = 2
-text = "Attemps 000"
+text = "000"
+label_settings = ExtResource("1_e7x7x")
+
+[node name="HBAttempts2" type="HBoxContainer" parent="MC/VB"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MC/VB/HBAttempts2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attemps"
+label_settings = ExtResource("1_e7x7x")
+
+[node name="AttemptsLabel2" type="Label" parent="MC/VB/HBAttempts2"]
+layout_mode = 2
+text = "000"
 label_settings = ExtResource("1_e7x7x")
 
 [node name="VbComplete" type="VBoxContainer" parent="."]
