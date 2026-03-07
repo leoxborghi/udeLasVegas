@@ -1,6 +1,9 @@
 extends Control
 
 
+const MAIN = preload("res://Scenes/main.tscn")
+
+
 var _total_cups: int = 0
 var _current_cups: int = 0
 var _attempts: int = 0
@@ -11,6 +14,9 @@ var _attempts: int = 0
 @onready var attempts_label: Label = $MC/VB/HBAttempts2/AttemptsLabel2
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().change_scene_to_packed(MAIN)
 
 
 func _ready() -> void:

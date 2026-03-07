@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckd2oapma78rj"]
+
+[ext_resource type="Texture2D" uid="uid://uqhllbdsopvi" path="res://Assets/ui/panel_beige.png" id="1_j8bpn"]
+[ext_resource type="FontFile" uid="uid://cammsndjd20co" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="2_shs6u"]
+[ext_resource type="Script" uid="uid://52ih6q6igc4u" path="res://level_button.gd" id="2_txyvr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_txyvr"]
+font = ExtResource("2_shs6u")
+font_size = 48
+font_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
+outline_size = 6
+outline_color = Color(0.03529412, 0.03529412, 0.03529412, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k1cd6"]
+font = ExtResource("2_shs6u")
+font_size = 28
+font_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
+outline_size = 6
+outline_color = Color(0.03529412, 0.03529412, 0.03529412, 1)
+
+[node name="LevelButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_j8bpn")
+script = ExtResource("2_txyvr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 12
+
+[node name="VB" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VB"]
+layout_mode = 2
+text = "99"
+label_settings = SubResource("LabelSettings_txyvr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VB"]
+layout_mode = 2
+text = "9999"
+label_settings = SubResource("LabelSettings_k1cd6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
