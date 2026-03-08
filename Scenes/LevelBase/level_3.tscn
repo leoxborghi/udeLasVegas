@@ -1,15 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://dghom51rddpng"]
+[gd_scene load_steps=4 format=3 uid="uid://dghom51rddpng"]
 
 [ext_resource type="PackedScene" uid="uid://conger70ypd7" path="res://Scenes/LevelBase/level_base.tscn" id="1_blxs8"]
 [ext_resource type="PackedScene" uid="uid://dk4kjljbbpdw2" path="res://Cup/cup.tscn" id="2_ykg3y"]
+[ext_resource type="PackedScene" uid="uid://uf58xc272gdu" path="res://block.tscn" id="3_ykg3y"]
 
 [node name="Level3" instance=ExtResource("1_blxs8")]
 
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(599, 329)
+
 [node name="Cup" parent="." index="4" instance=ExtResource("2_ykg3y")]
-position = Vector2(837, 179)
+position = Vector2(872, 471)
 
 [node name="Cup2" parent="." index="5" instance=ExtResource("2_ykg3y")]
-position = Vector2(538, 288)
+position = Vector2(373, 189)
 
 [node name="Cup3" parent="." index="6" instance=ExtResource("2_ykg3y")]
-position = Vector2(316, 398)
+position = Vector2(394, 495)
+
+[node name="block" parent="." index="7" instance=ExtResource("3_ykg3y")]
+position = Vector2(894, 26)
+
+[node name="block2" parent="." index="8" instance=ExtResource("3_ykg3y")]
+position = Vector2(399, 243.99998)
+rotation = -1.444638
+
+[node name="block3" parent="." index="9" instance=ExtResource("3_ykg3y")]
+position = Vector2(811.99994, 257)
+rotation = 1.1872294

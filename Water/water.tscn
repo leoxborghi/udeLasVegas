@@ -9,6 +9,7 @@ normal = Vector2(-0.014491231, -0.999895)
 distance = -39.0
 
 [node name="Water" type="Area2D"]
+z_index = 10
 script = ExtResource("1_oj1mp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
