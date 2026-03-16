@@ -23,7 +23,7 @@ var _is_dragging: bool = false
 var _arrow_scale_x: float = 0.0
 
 
-func _unhandeld_(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("drag")and _is_dragging:
 		call_deferred("start_release")
 
@@ -34,7 +34,7 @@ func _ready() -> void:
 	_arrow_scale_x = arrow.scale.x
 
 
-func _processed( _delta: float) -> void:
+func _process( _delta: float) -> void:
 	var debug_str: String = "FR:%s CC:%d SL:%s\n" % [
 		freeze,
 		get_contact_count(),

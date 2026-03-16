@@ -13,7 +13,6 @@ var _attempts: int = 0
 @onready var music: AudioStreamPlayer = $Music
 @onready var attempts_label: Label = $MC/VB/HBAttempts2/AttemptsLabel2
 
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().change_scene_to_packed(MAIN)
@@ -23,7 +22,7 @@ func _ready() -> void:
 	get_tree().paused = false
 	_total_cups = get_tree().get_nodes_in_group(Cup.GROUP_NAME).size()
 	SignalHub.on_cup_destroyed.connect(on_cup_destroyed)
-	on_attempt_made()
+	SignalHub.on_attempt_made.connect(on_attempt_made)
 	
 	
 func on_attempt_made() -> void:
